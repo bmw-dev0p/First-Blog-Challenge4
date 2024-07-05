@@ -43,6 +43,7 @@ footer {
 
 li {
   margin: 1rem;
+  display: inline;
 }
 
 main {
