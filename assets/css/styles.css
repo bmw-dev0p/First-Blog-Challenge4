@@ -82,6 +82,11 @@ footer {
   padding: 2rem;
 }
 
+/* added border to footer to match other styles  */
+footer {
+  border-top: double 1rem;
+}
+
 main {
   height: calc(100vh - 6rem);
   display: flex;
