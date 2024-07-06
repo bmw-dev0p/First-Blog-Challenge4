@@ -21,10 +21,11 @@ function formSubmit(event) {
         localStorage.setItem('username', user);
         localStorage.setItem('title', title);
         localStorage.setItem('content', content);
+
     }
 
     // Redirect to the blog page
-    // redirectPage();
+    redirectPage('./blog.html');
 }
 
 
