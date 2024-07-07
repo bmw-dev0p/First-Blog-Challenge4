@@ -10,16 +10,16 @@ themeToggle.addEventListener('click', function () {
   console.log("toggle clicked");
   // console.log(content);
 
-  if (theme === 'dark') {
-    theme = 'light';
-    content.setAttribute('class', 'light');
+  if (theme !== 'dark') {
+    theme = 'dark';
+    content.setAttribute('class', 'dark');
     // main.setAttribute('class', 'light');
     // foot.setAttribute('class', 'light');
   }
   // If mode is light, apply dark background
   else {
-    theme = 'dark';
-    content.setAttribute('class', 'dark');
+    theme = 'light';
+    content.setAttribute('class', 'light');
     // head.setAttribute('class', 'dark');
     // head.setAttribute('class', 'dark');
   }  

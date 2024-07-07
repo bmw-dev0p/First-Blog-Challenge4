@@ -1,29 +1,33 @@
 // TODO: Create a variable that selects the main element, and a variable that selects the back button element
 const main = document.querySelector('main');
 const backBtn = document.querySelector('#back')
+const article = document.createElement('article');
+const h2 = document.createElement('h2');
+const block = document.createElement('blockquote');
+const p = document.createElement('p');
+const userStorage = JSON.parse(localStorage.getItem('username'));
+const titleStorage = JSON.parse(localStorage.getItem('title'));
+const contentStorage = JSON.parse(localStorage.getItem('content'));
+//check
+console.log(userStorage);
+console.log(userStorage.length);
 
 // TODO: Create a function that builds an element and appends it to the DOM
-let users = [];
-let titles = [];
-let contents = [];
-
-// console.log(users);
 
 function createBlog(){
-
-        const article = document.createElement('article');
-        const h2 = document.createElement('h2');
-        const block = document.createElement('blockquote');
-        const p = document.createElement('p');
-
-        document.body.appendChild(article);
+    
+    for (let i = 0; i < userStorage.length; i++){
+        
+        main.appendChild(article);
         article.appendChild(h2);
         article.appendChild(block);
         article.appendChild(p);
 
-        h2.textContent = localStorage.getItem('title');
-        block.textContent = localStorage.getItem('content');
-        p.textContent = `By: ${localStorage.getItem('username')}`;
+        h2.textContent = titleStorage[i];
+        block.textContent = contentStorage[i];
+        p.textContent = `By: ${userStorage[i]}`;
+
+    }
 
     
 
@@ -41,23 +45,21 @@ function noPosts(){
 
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList(){
-    const userCurrent = localStorage.getItem('username');
-    users.push(userCurrent);
-    const titleCurrent = localStorage.getItem('title'); 
-    titles.push(titleCurrent);
-    const contentCurrent = localStorage.getItem('content');
-    contents.push(contentCurrent);
+    
+    // users.push(userCurrent);
+    // const titleCurrent = localStorage.getItem('title'); 
+    // titles.push(titleCurrent);
+    // const contentCurrent = localStorage.getItem('content');
+    // contents.push(contentCurrent);
 
-    if (userCurrent === null){
+    if (userStorage === null){
         noPosts();
     } else {
-        for (let i = 0; i < users.length; i++){
-
-            createBlog();
+        createBlog();
     
         }
     }
-}
+
 // TODO: Call the `renderBlogList` function
 
 renderBlogList();
