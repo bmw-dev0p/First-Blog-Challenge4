@@ -13,6 +13,7 @@ themeToggle.addEventListener('click', function () {
   if (theme !== 'dark') {
     theme = 'dark';
     content.setAttribute('class', 'dark');
+    themeToggle.textContent = '🌙';
     // main.setAttribute('class', 'light');
     // foot.setAttribute('class', 'light');
   }
@@ -20,6 +21,7 @@ themeToggle.addEventListener('click', function () {
   else {
     theme = 'light';
     content.setAttribute('class', 'light');
+    themeToggle.textContent = '☀️';
     // head.setAttribute('class', 'dark');
     // head.setAttribute('class', 'dark');
   }  
@@ -31,10 +33,20 @@ themeToggle.addEventListener('click', function () {
 
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.
-
+const readLocalStorage = function() {
+  if (!storage) {
+    return [];
+  } else {
+    return localStorage;
+    }
+};
 
 // TODO: Create a function called `storeLocalStorage` that takes a given object and saves the new data to the existing blog data in local storage.
-
+function storeLocalStorage (data) {
+  let storage = JSON.parse(localStorage.getItem(key));
+  storage.push(data);
+  localStorage.setItem(key, JSON.stringify(storage));
+};
 
 // ! Use the following function whenever you need to redirect to a different page
 

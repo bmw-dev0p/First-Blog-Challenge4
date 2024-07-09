@@ -5,17 +5,20 @@ const article = document.createElement('article');
 const h2 = document.createElement('h2');
 const block = document.createElement('blockquote');
 const p = document.createElement('p');
-const userStorage = JSON.parse(localStorage.getItem('username'));
-const titleStorage = JSON.parse(localStorage.getItem('title'));
-const contentStorage = JSON.parse(localStorage.getItem('content'));
-//check
-console.log(userStorage);
-console.log(userStorage.length);
+    userStorage = JSON.parse(localStorage.getItem('username'));
+    titleStorage = JSON.parse(localStorage.getItem('title'));
+    contentStorage = JSON.parse(localStorage.getItem('content'));
+    //check
+    console.log(localStorage.getItem('username'));
+    console.log(userStorage);
+    console.log(userStorage.length);
+    
+
 
 // TODO: Create a function that builds an element and appends it to the DOM
 
 function createBlog(){
-    
+         
     for (let i = 0; i < userStorage.length; i++){
         
         main.appendChild(article);
@@ -26,12 +29,7 @@ function createBlog(){
         h2.textContent = titleStorage[i];
         block.textContent = contentStorage[i];
         p.textContent = `By: ${userStorage[i]}`;
-
-    }
-
-    
-
-
+    } 
 }
 
 
@@ -45,18 +43,11 @@ function noPosts(){
 
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList(){
-    
-    // users.push(userCurrent);
-    // const titleCurrent = localStorage.getItem('title'); 
-    // titles.push(titleCurrent);
-    // const contentCurrent = localStorage.getItem('content');
-    // contents.push(contentCurrent);
 
-    if (userStorage === null){
+    if (localStorage.getItem("username") === null){
         noPosts();
     } else {
         createBlog();
-    
         }
     }
 
