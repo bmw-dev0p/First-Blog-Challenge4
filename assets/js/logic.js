@@ -34,7 +34,7 @@ themeToggle.addEventListener('click', function () {
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.
 const readLocalStorage = function() {
-  if (!storage) {
+  if (!localStorage) {
     return [];
   } else {
     return localStorage;
