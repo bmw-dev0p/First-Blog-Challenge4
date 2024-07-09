@@ -32,7 +32,7 @@ function formSubmit(event) {
         titles.concat(titleStorage);
         contents.concat(contentStorage);
         console.log(users);
-        //add to array
+        //add form data to array
         users.push(userCurrent);
         titles.push(titleCurrent);
         contents.push(contentCurrent);
