@@ -1,39 +1,28 @@
 // TODO: Create a variable that selects the main element, and a variable that selects the back button element
 const main = document.querySelector('main');
-const backBtn = document.querySelector('#back')
-const article = document.createElement('article');
-const h2 = document.createElement('h2');
-const block = document.createElement('blockquote');
-const p = document.createElement('p');
-    userStorage = JSON.parse(localStorage.getItem('username'));
-    titleStorage = JSON.parse(localStorage.getItem('title'));
-    contentStorage = JSON.parse(localStorage.getItem('content'));
-    //check
-    console.log(localStorage.getItem('username'));
-    console.log(userStorage);
-    console.log(userStorage.length);
+const backBtn = document.querySelector('#back');
     
-
-
 // TODO: Create a function that builds an element and appends it to the DOM
 
 function createBlog(){
-         
-    for (let i = 0; i < userStorage.length; i++){
+       const blogPosts = JSON.parse(localStorage.getItem('blogData'));  
+    for (let i = 0; i < blogPosts.length; i++){
+
+        const article = document.createElement('article');
+        const h2 = document.createElement('h2');
+        const block = document.createElement('blockquote');
+        const p = document.createElement('p')
         
+        h2.textContent = blogPosts[i].title;
+        block.textContent = blogPosts[i].content;
+        p.textContent = `By: ${blogPosts[i].username}`;
+
         main.appendChild(article);
         article.appendChild(h2);
         article.appendChild(block);
-        article.appendChild(p);
-
-        h2.textContent = titleStorage[i];
-        block.textContent = contentStorage[i];
-        p.textContent = `By: ${userStorage[i]}`;
+        article.appendChild(p);  
     } 
 }
-
-
-
 
 // TODO: Create a function that handles the case where there are no blog posts to display
 function noPosts(){
@@ -44,7 +33,7 @@ function noPosts(){
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList(){
 
-    if (localStorage.getItem("username") === null){
+    if (localStorage.getItem("blogData") === null){
         noPosts();
     } else {
         createBlog();

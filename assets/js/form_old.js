@@ -48,7 +48,7 @@ function formSubmit(event) {
         localStorage.setItem('content', contentsS);   
         console.log(localStorage.getItem('username'));     
     }
-    redirectPage('./blog.html');
+    // redirectPage('./blog.html');
 }
 
 

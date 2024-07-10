@@ -1,9 +1,6 @@
 // TODO: Create logic to toggle the light/dark mode styles for the page and circle. The mode should be saved to local storage.
 const themeToggle = document.querySelector('#toggle');
 const content = document.querySelector('.content');
-// const main = document.querySelector('main');
-// const foot = document.querySelector('footer');
-
 let theme = localStorage.getItem('theme');
 
 themeToggle.addEventListener('click', function () {
