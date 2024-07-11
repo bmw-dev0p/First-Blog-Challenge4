@@ -6,6 +6,7 @@ const errorElement = document.querySelector('#error');
 function formSubmit(event) {
     // stops form from submitting twice
     event.preventDefault();
+    //collect user input
     const userCurrent = (document.querySelector('#username').value).trim();
     const titleCurrent = (document.querySelector('#title').value).trim();
     const contentCurrent = (document.querySelector('#content').value).trim();
@@ -18,11 +19,7 @@ function formSubmit(event) {
         content: contentCurrent
     };
 
-    // get the current values of the form
-
-
-
-    // prompts user if any fields are empty, then exits function
+    // alerts user if any fields are empty, then exits function
     if (!userCurrent || !titleCurrent || !contentCurrent) {
         errorElement.textContent = 'Please fill out all the fields before submitting.';
         return;
@@ -32,7 +29,6 @@ function formSubmit(event) {
         // add existing data to arrays
         if (storage) {
             storage.push(blogData);
-
         } else {
             storage = [];
             storage.push(blogData);

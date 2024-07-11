@@ -15,7 +15,7 @@ function createBlog(){
         
         h2.textContent = blogPosts[i].title;
         block.textContent = blogPosts[i].content;
-        p.textContent = `By: ${blogPosts[i].username}`;
+        p.textContent = `Posted by: ${blogPosts[i].username}`;
 
         main.appendChild(article);
         article.appendChild(h2);
@@ -26,8 +26,10 @@ function createBlog(){
 
 // TODO: Create a function that handles the case where there are no blog posts to display
 function noPosts(){
+    //probably could do this different ways
+    //if it was allowed, I would just hard code the html, but decided to create it here
     console.log('noPosts activated')
-    window.alert('Hey! There are no user submitted posts to display (besides example). Please use the back button (top right window), and create a post.');
+    window.alert('No user blog posts to display. Please use the back button to return to the form.');
 }
 
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
