@@ -29,16 +29,16 @@ themeToggle.addEventListener('click', function () {
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.
 const readLocalStorage = function() {
-  if (!localStorage) {
+  if (!localStorage.getItem('blogData')) {
     return [];
   } else {
-    return localStorage;
+    return localStorage.getItem('blogData');
     }
 };
 
 // TODO: Create a function called `storeLocalStorage` that takes a given object and saves the new data to the existing blog data in local storage.
 function storeLocalStorage (data) {
-  let storage = JSON.parse(localStorage.getItem('blogData'));
+  let storage = JSON.parse(readLocalStorage());
   storage.push(data);
   localStorage.setItem('blogData', JSON.stringify(storage));
 };

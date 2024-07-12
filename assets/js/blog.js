@@ -29,7 +29,7 @@ function noPosts(){
     //probably could do this different ways
     //if it was allowed, I would just hard code the html, but decided to create it here
     console.log('noPosts activated')
-    window.alert('No user blog posts to display. Please use the back button to return to the form.');
+    main.innerHTML = '<h2>No Posts</h2>'; 
 }
 
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
