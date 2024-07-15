@@ -5,7 +5,7 @@ const backBtn = document.querySelector('#back');
 // TODO: Create a function that builds an element and appends it to the DOM
 
 function createBlog(){
-       const blogPosts = JSON.parse(localStorage.getItem('blogData'));  
+       const blogPosts = JSON.parse(localStorage.getItem('post'));  
     for (let i = 0; i < blogPosts.length; i++){
 
         const article = document.createElement('article');
@@ -29,13 +29,13 @@ function noPosts(){
     //probably could do this different ways
     //if it was allowed, I would just hard code the html, but decided to create it here
     console.log('noPosts activated')
-    main.innerHTML = '<h2>No Posts</h2>'; 
+    main.innerHTML = 'No Blog posts yet...'; 
 }
 
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList(){
 
-    if (localStorage.getItem("blogData") === null){
+    if (localStorage.getItem("post") === null){
         noPosts();
     } else {
         createBlog();

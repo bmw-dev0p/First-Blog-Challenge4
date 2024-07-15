@@ -13,7 +13,7 @@ function formSubmit(event) {
 
     let storage;
 
-    let blogData = {
+    let post = {
         username: userCurrent,
         title: titleCurrent,
         content: contentCurrent
@@ -22,27 +22,25 @@ function formSubmit(event) {
     console.log('error activated');
     // alerts user if any fields are empty, then exits function
     if (!userCurrent || !titleCurrent || !contentCurrent) {
-        
         errorElement.textContent = 'Please complete the form.';
         return;
     } else {
-        
         //check for previous stored data
-        storage = JSON.parse(localStorage.getItem('blogData'));
+        storage = JSON.parse(localStorage.getItem('post'));
         // add existing data to arrays
         if (storage) {
-            storage.push(blogData);
+            storage.push(post);
         } else {
             storage = [];
-            storage.push(blogData);
+            storage.push(post);
         }
     }
     // format the object for storage
     const blogDataS = JSON.stringify(storage);
     //store object in local
-    localStorage.setItem('blogData', blogDataS);
+    localStorage.setItem('post', blogDataS);
     //check
-    console.log(localStorage.getItem('blogData'));
+    // console.log(localStorage.getItem('blogData'));
     
     redirectPage('./blog.html');
 }
